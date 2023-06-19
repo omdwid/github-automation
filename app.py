@@ -32,8 +32,8 @@ g = Github(st.secrets["GITHUB_KEY"])
 def preprocess(text):
     text = text.replace('\n','')
     text = text.lower()
-    text = re.sub(r"http\S+","",text)
-    text = re.sub('[^A-Za-z0-9]+',' ',text)
+    text = re.sub(r"http\S+","",text) # removing the hyperlinks from the text
+    text = re.sub('[^A-Za-z0-9]+',' ',text) # removing punctuations from the text
     return text
 
 
@@ -111,7 +111,8 @@ def most_complex_repo(repos):
         chunks = get_chunks(text)
         result = get_result(chunks)
         print(repo.name," ",result)
-        
+
+        # store the maximum value of the complexity score
         if result > maxi:
             maxi = result
             maxi_repo = repo.name
