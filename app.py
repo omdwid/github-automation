@@ -25,8 +25,8 @@ from dotenv import load_dotenv, dotenv_values
 
 load_dotenv()
 
-os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_KEY")
-g = Github(os.getenv("GITHUB_KEY")) 
+os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_KEY"]
+g = Github(st.secrets["GITHUB_KEY"]) 
 
 
 def preprocess(text):
