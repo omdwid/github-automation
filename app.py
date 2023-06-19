@@ -133,9 +133,10 @@ if c2.button('Submit'):
         try:
             user = g.get_user(user_name)
             repos = user.get_repos()
+            repo_name, score = most_complex_repo(repos)
+            st.text("Most complex repo of the user is: ")
+            st.write(f"{user_link}/{repo_name}")
         except:
             st.write("Enter a valid user link")
             
-        repo_name, score = most_complex_repo(repos)
-        st.text("Most complex repo of the user is: ")
-        st.write(f"{user_link}/{repo_name}")
+        
