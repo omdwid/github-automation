@@ -110,7 +110,7 @@ def most_complex_repo(repos):
         text = preprocess(text)
         chunks = get_chunks(text)
         result = get_result(chunks)
-        print(result)
+        print(repo.name," ",result)
         
         if result > maxi:
             maxi = result
